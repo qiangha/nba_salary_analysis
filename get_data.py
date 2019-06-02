@@ -65,7 +65,7 @@ def data():
            
             for i in rows:
                 if i.find('a'):
-                    if i.find('a').text=='2017-18':
+                    if i.find('a').text=='2016-17':
                         points_per_36_minutes=float(i.find_all('td')[27].text)
                         
                         break
@@ -97,7 +97,7 @@ def data():
         
             for i in rows:
                 if i.find('a'):
-                    if i.find('a').text=='2017-18':
+                    if i.find('a').text=='2016-17':
 
                         usage_rate=float(i.find_all('td')[17].text)
                         offensive_win_share=float(i.find_all('td')[19].text)
@@ -122,7 +122,7 @@ def data():
            
             for i in rows:
                 if i.find('th'):
-                    if i.find('th').text=='2018-19':
+                    if i.find('th').text=='2017-18':
                 
                         salary=i.find_all('td')[2].text[1:]#the first charactwr is dollar sign
                         salary=int(salary.replace(',',''))
@@ -145,19 +145,19 @@ def data():
                         season_list=[]
                         season=i.find('th').text
                         season=int(season[:4])
-                        if 2018>=season>=2015:
+                        if 2017>=season>=2014:
                             team_name=i.find('a').text
                             team_list.append(team_name)
                             season_list.append(season)
-            season=2018
-            if season_list[0]>=2015: #if joined after 2014, contract is signed on joining
+            season=2017
+            if season_list[0]>=2014: #if joined after 2014, contract is signed on joining
                 season=season_list[0]
             else:
                 for i in range(3):
-                    if team[i]!=team[i+1]:
+                    if team_list[i]!=team_list[i+1]:
                         season=season_list[i+1]
                         
-            salary=(salary_cap[2018])*salary/(salary_cap[season])
+            salary=(salary_cap[2017])*salary/(salary_cap[season])
                         
             #make adjustment to salary 
             #adjusting the contracts proportional to the difference in the current salary cap and 
