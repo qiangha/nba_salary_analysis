@@ -65,7 +65,7 @@ def data():
            
             for i in rows:
                 if i.find('a'):
-                    if i.find('a').text=='2016-17':
+                    if i.find('a').text=='2017-18':
                         points_per_36_minutes=float(i.find_all('td')[27].text)
                         
                         break
@@ -97,7 +97,7 @@ def data():
         
             for i in rows:
                 if i.find('a'):
-                    if i.find('a').text=='2016-17':
+                    if i.find('a').text=='2017-18':
 
                         usage_rate=float(i.find_all('td')[17].text)
                         offensive_win_share=float(i.find_all('td')[19].text)
@@ -122,7 +122,7 @@ def data():
            
             for i in rows:
                 if i.find('th'):
-                    if i.find('th').text=='2017-18':
+                    if i.find('th').text=='2018-19':
                 
                         salary=i.find_all('td')[2].text[1:]#the first charactwr is dollar sign
                         salary=int(salary.replace(',',''))
@@ -133,8 +133,8 @@ def data():
             #adjust salary according to salary cap
             
             
-            #if the person changes team during 2014-2017, then the contract is signed when he last changes team
-            #otherwise the contract is signed when the person joins nba or 2014 whichever is latest
+            #if the person changes team during 2015-2018, then the contract is signed when he last changes team
+            #otherwise the contract is signed when the person joins nba or 2015 whichever is latest
             #normally contracts in nba last 4 years.
             
             #consturct the team by year lists
@@ -145,12 +145,12 @@ def data():
                         season_list=[]
                         season=i.find('th').text
                         season=int(season[:4])
-                        if 2017>=season>=2014:
+                        if 2018>=season>=2015:
                             team_name=i.find('a').text
                             team_list.append(team_name)
                             season_list.append(season)
-            season=2017
-            if season_list[0]>=2014: #if joined after 2014, contract is signed on joining
+            season=2018
+            if season_list[0]>=2015: #if joined after 2014, contract is signed on joining
                 season=season_list[0]
             else:
                 for i in range(3):
