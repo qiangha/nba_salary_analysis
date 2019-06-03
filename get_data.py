@@ -157,7 +157,7 @@ def data():
                     if team_list[i]!=team_list[i+1]:
                         season=season_list[i+1]
                         
-            salary=(salary_cap[2017])*salary/(salary_cap[season])
+            salary=(salary_cap[2018])*salary/(salary_cap[season])
                         
             #make adjustment to salary 
             #adjusting the contracts proportional to the difference in the current salary cap and 
